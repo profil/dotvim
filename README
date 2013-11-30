@@ -12,3 +12,6 @@ Install new bundle
 	git submodule add <url> ~/.vim/bundle
 	git add ~/.vim/bundle
 	git commit -m "Install <bundle> as submodule"
+
+Upgrade bundles
+	git submodule foreach git pull origin master
