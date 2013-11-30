@@ -1,0 +1,14 @@
+Installation
+	git clone <url> ~/.vim
+
+Create symlink for .vimrc
+	ln -s ~/.vim/vimrc ~/.vimrc
+
+Submodules for use with pathogen
+	cd ~/.vim
+	git submodule update --init
+
+Install new bundle
+	git submodule add <url> ~/.vim/bundle
+	git add ~/.vim/bundle
+	git commit -m "Install <bundle> as submodule"
