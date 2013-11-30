@@ -23,5 +23,5 @@ if has("gui_running")
 endif
 
 
-autocmd BufRead,BufNewFile *.tex setlocal makeprg=pdflatex\ % textwidth=75
+autocmd BufRead,BufNewFile *.tex setlocal makeprg=pdflatex\ \-file\-line\-error\ \-interaction=nonstopmode\ % errorformat=%f:%l:\ %m textwidth=75
 autocmd BufRead,BufNewFile *.md setlocal textwidth=75
