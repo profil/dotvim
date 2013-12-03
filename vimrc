@@ -2,7 +2,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
-colorscheme eink
+colorscheme solarized
 
 set colorcolumn=80
 set background=dark
