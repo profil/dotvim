@@ -19,9 +19,11 @@ if has("gui_running")
 		set guifont=Inconsolata:h11
 	elseif has("unix")
 		set guifont=Inconsolata\ 11
+		set guioptions=aegiLt
 	endif
 endif
 
 
 autocmd BufRead,BufNewFile *.tex setlocal makeprg=pdflatex\ \-file\-line\-error\ \-interaction=nonstopmode\ % errorformat=%f:%l:\ %m textwidth=75
 autocmd BufRead,BufNewFile *.md setlocal textwidth=75
+
