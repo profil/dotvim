@@ -19,7 +19,7 @@ if has("gui_running")
 		set guifont=Inconsolata:h11
 	elseif has("unix")
 		set guifont=Inconsolata\ 10
-		set guioptions=aegiLt
+		set guioptions=aegit
 	endif
 endif
 
