@@ -4,7 +4,7 @@ syntax on
 filetype plugin indent on
 colorscheme solarized
 
-#set colorcolumn=80
+"set colorcolumn=80
 set background=dark
 set number
 set incsearch
