@@ -2,7 +2,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
-colorscheme solarized
+colorscheme molokai
 
 "set colorcolumn=80
 set background=dark
@@ -13,6 +13,8 @@ set ruler
 set autoindent
 set tabstop=4
 set shiftwidth=4
+set concealcursor=nc
+set conceallevel=1
 
 set laststatus=2 " always show statusline
 set statusline=%n\ %F\ %y%=%l/%L
@@ -21,7 +23,7 @@ if has("gui_running")
 	if has("mac")
 		set guifont=Inconsolata:h11
 	elseif has("unix")
-		set guifont=Inconsolata\ 12
+		set guifont=Inconsolata\ 10
 		set guioptions=aegit
 	endif
 endif
@@ -47,3 +49,5 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 inoremap jk <esc>
+
+hi Conceal guibg=NONE guifg=Yellow
