@@ -15,6 +15,8 @@ set tabstop=4
 set shiftwidth=4
 set concealcursor=nc
 set conceallevel=1
+set wildmenu
+set wildmode=longest:full,full
 
 set laststatus=2 " always show statusline
 set statusline=%n\ %F\ %y%=%l/%L
