@@ -53,6 +53,14 @@ augroup haskell
 	autocmd BufRead,BufNewFile *.hs setlocal tabstop=2 shiftwidth=2 expandtab
 augroup END
 
+augroup clojure
+	autocmd!
+	autocmd Filetype clojure RainbowParenthesesActivate
+	autocmd Filetype clojure RainbowParenthesesLoadRound
+	autocmd Filetype clojure RainbowParenthesesLoadSquare
+	autocmd Filetype clojure RainbowParenthesesLoadBraces
+augroup END
+
 
 let mapleader = ','
 
