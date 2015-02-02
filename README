@@ -4,15 +4,8 @@ Installation
 Create symlink for .vimrc
 	ln -s ~/.vim/vimrc ~/.vimrc
 
-Submodules for use with pathogen
-	cd ~/.vim
-	git submodule update --init
+Install Vundle
+	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-Install new bundle
-	cd ~/.vim/bundle
-	git submodule add <url>
-	git add ~/.vim/
-	git commit -m "Install <bundle> as submodule"
-
-Upgrade bundles
-	git submodule foreach git pull origin master
+Start vim and run
+	:PluginInstall
