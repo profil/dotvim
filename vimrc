@@ -16,7 +16,6 @@ Plugin 'eapache/rainbow_parentheses.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-fireplace'
 Plugin 'chriskempson/base16-vim'
 call vundle#end()
@@ -27,7 +26,7 @@ filetype plugin indent on
 colorscheme base16-solarized
 
 "set colorcolumn=80
-set background=light
+"set background=light
 set number
 set incsearch
 set autowrite " autosave before running :make
@@ -38,9 +37,10 @@ set noexpandtab
 set shiftwidth=4
 set softtabstop=-1
 set concealcursor=nc
-set conceallevel=1
+set conceallevel=0
 set wildmenu
-set wildmode=longest:full,full
+set wildignorecase
+set wildmode=longest,full
 set splitbelow
 set splitright
 
@@ -49,6 +49,7 @@ set statusline=%5*\ %n\ %4*\ %f\ %3*%=[%Y%M%R%W]\ %4*\ %l:%c\ %5*\ %P\
 hi User3 ctermfg=blue ctermbg=magenta
 hi User4 ctermfg=white ctermbg=gray
 hi User5 ctermfg=black ctermbg=lightgray
+
 "hi User3 guifg=#af875f guibg=#303030 ctermfg=137 ctermbg=236
 "hi User4 guifg=#121212 guibg=#606060 ctermfg=233 ctermbg=241
 "hi User5 guifg=#121212 guibg=#8a8a8a ctermfg=233 ctermbg=245
@@ -80,6 +81,22 @@ augroup END
 
 augroup clojure
 	autocmd!
+	let g:rbpt_colorpairs = [
+	    \ ['red',         'RoyalBlue3'],
+	    \ ['brown',       'SeaGreen3'],
+	    \ ['blue',        'DarkOrchid3'],
+	    \ ['gray',        'firebrick3'],
+	    \ ['green',       'RoyalBlue3'],
+	    \ ['cyan',        'DarkOrchid3'],
+	    \ ['darkred',     'firebrick3'],
+	    \ ['brown',       'RoyalBlue3'],
+	    \ ['darkblue',    'DarkOrchid3'],
+	    \ ['gray',        'firebrick3'],
+	    \ ['darkgreen',   'RoyalBlue3'],
+	    \ ['darkmagenta', 'SeaGreen3'],
+	    \ ['darkcyan',    'DarkOrchid3'],
+	    \ ['red',         'firebrick3'],
+	    \ ]
 	autocmd Filetype clojure RainbowParenthesesActivate
 	autocmd Filetype clojure RainbowParenthesesLoadRound
 	autocmd Filetype clojure RainbowParenthesesLoadSquare
@@ -102,6 +119,10 @@ nnoremap [Q :cfirst<cr>
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
 nnoremap <silent><BS> :set hlsearch!<CR>
+nnoremap <silent> <c-h> <c-w>h
+nnoremap <silent> <c-j> <c-w>j
+nnoremap <silent> <c-k> <c-w>k
+nnoremap <silent> <c-l> <c-w>l
 
 hi Conceal guibg=NONE guifg=Yellow
 
@@ -112,5 +133,3 @@ nmap ga <Plug>(EasyAlign)
 
 nnoremap <Leader>f :Unite -start-insert file_rec/async<CR>
 
-" vim-tmux-navigator save on leave
-let g:tmux_navigator_save_on_switch = 1
