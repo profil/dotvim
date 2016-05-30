@@ -1,34 +1,27 @@
-"runtime bundle/vim-pathogen/autoload/pathogen.vim
-"execute pathogen#infect()
-
-" Use vundle for package management
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'https://bitbucket.org/kisom/eink.vim.git'
-Plugin 'guns/vim-sexp'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'tpope/vim-fugitive'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'eapache/rainbow_parentheses.vim'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'tpope/vim-fireplace'
-Plugin 'chriskempson/base16-vim'
-call vundle#end()
+" Use vim-plug for package management
+call plug#begin('~/.config/nvim/bundle')
+Plug 'junegunn/vim-plug'
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+Plug 'eapache/rainbow_parentheses.vim', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'chriskempson/base16-vim'
+Plug 'joshdick/onedark.vim'
+call plug#end()
 
 
 syntax on
 filetype plugin indent on
 colorscheme base16-solarized
 
+:let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 "set colorcolumn=80
 "set background=light
 set number
 set incsearch
+set ignorecase
+set smartcase
 set autowrite " autosave before running :make
 set ruler
 set autoindent
@@ -45,14 +38,7 @@ set splitbelow
 set splitright
 
 set laststatus=2 " always show statusline
-set statusline=%5*\ %n\ %4*\ %f\ %3*%=[%Y%M%R%W]\ %4*\ %l:%c\ %5*\ %P\ 
-hi User3 ctermfg=blue ctermbg=magenta
-hi User4 ctermfg=white ctermbg=gray
-hi User5 ctermfg=black ctermbg=lightgray
-
-"hi User3 guifg=#af875f guibg=#303030 ctermfg=137 ctermbg=236
-"hi User4 guifg=#121212 guibg=#606060 ctermfg=233 ctermbg=241
-"hi User5 guifg=#121212 guibg=#8a8a8a ctermfg=233 ctermbg=245
+set statusline=%#LineNr#\ %n\ %f\ %=[%Y%M%R%W]\ %l:%c\ %P\ 
 
 if has("gui_running")
 	if has("mac")
@@ -126,10 +112,17 @@ nnoremap <silent> <c-l> <c-w>l
 
 hi Conceal guibg=NONE guifg=Yellow
 
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+tnoremap <Esc><Esc> <c-\><c-n>
+tnoremap <silent> <c-h> <c-\><c-n><c-w>h
+tnoremap <silent> <c-j> <c-\><c-n><c-w>j
+tnoremap <silent> <c-k> <c-\><c-n><c-w>k
+tnoremap <silent> <c-l> <c-\><c-n><c-w>l
+tnoremap <silent> <Esc><c-l> <c-l>
 
-nnoremap <Leader>f :Unite -start-insert file_rec/async<CR>
+set backspace=2
+
+augroup terminal
+	autocmd!
+	autocmd WinEnter term://* startinsert
+augroup END
 
